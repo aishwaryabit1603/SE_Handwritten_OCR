@@ -9,6 +9,15 @@ Original file is located at
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
+# Install necessary libraries using pip
+!pip install opencv-python
+!pip install numpy
+!pip install pandas
+!pip install matplotlib
+!pip install seaborn
+!pip install tensorflow
+!pip install pillow
+!pip install streamlit
 
 # Default libraries, packages for data management, visualization, and computer vision libraries
 import cv2              # OpenCV library for computer vision tasks
