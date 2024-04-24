@@ -10,21 +10,38 @@ Original file is located at
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile app.py
 
-import tensorflow as tf
-from tensorflow import keras
-import PIL
-import streamlit as st
-import cv2
-import numpy as np
+# Default libraries, packages for data management, visualization, and computer vision libraries
+import cv2              # OpenCV library for computer vision tasks
+import numpy as np      # NumPy library for numerical computations
+import pandas as pd     # Pandas library for data manipulation and analysis
+import matplotlib.pyplot as plt     # Matplotlib library for data visualization
+import seaborn as sns   # Seaborn library for statistical data visualization
+import os               # OS library for interacting with the operating system
 
+# Sklearn package -> function
+from sklearn.model_selection import train_test_split    # Function for splitting data into training and testing sets
+from sklearn.metrics import classification_report       # Function for generating classification reports
 
+# TensorFlow packages
+import tensorflow as tf                    # TensorFlow library for deep learning tasks
+from tensorflow.keras.preprocessing.image import ImageDataGenerator    # Data augmentation for image data
+from tensorflow.keras.models import Sequential     # Sequential model for building deep learning models
+from tensorflow.keras.layers import (Dense, Dropout, Conv2D, MaxPool2D, 
+                                     BatchNormalization, Flatten, GlobalAveragePooling2D, Input)    # Layers for building deep learning models
+from tensorflow.keras.optimizers import Adam        # Optimizer for training deep learning models
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau, LearningRateScheduler    # Callbacks for training models
+from tensorflow.keras.applications import EfficientNetB7, MobileNetV2, VGG19, DenseNet121    # Pre-trained models for transfer learning
+from tensorflow import keras        # Keras API for TensorFlow
+
+import PIL        # Python Imaging Library for image processing
+import streamlit as st    # Streamlit library for creating web applications
 
 model = keras.models.load_model("https://github.com/aishwaryabit1603/SE_Handwritten_OCR/blob/e1d8096561592fb9a8921fa5717690c6728d7e18/DenseNet121_model.h5")
 
 st.title("Handwritten Character Recoginition")
 st.header("Please upload your image here")
 
-file=st.file_uploader(" ",type=['jpg','jpeg','png'])
+file=st.file_uploader("Choose an image file",type=['jpg','jpeg','png'])
 
 
 if file is not None:
