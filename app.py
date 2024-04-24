@@ -19,7 +19,7 @@ import numpy as np
 
 
 
-model = keras.models.load_model("E:/Programming/Projects/Brain Tumor Detection/braintumorModel.h5")
+model = keras.models.load_model("https://github.com/aishwaryabit1603/SE_Handwritten_OCR/blob/e1d8096561592fb9a8921fa5717690c6728d7e18/DenseNet121_model.h5")
 
 st.title(“Handwritten Character Recoginition“)
 st.header("Please upload your image here")
